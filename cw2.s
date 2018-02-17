@@ -7,6 +7,11 @@ newline:
     .global main			@ set global function to main
     .extern printf			@ include printf
 
+@ Version 1.2	
+	
+@ An ARM assembly program that encrypts or decrypts standard input based on the user having entered 0 or 1
+@ The result will be displayed to standard output
+	
 @ r0 - char to be processed and encrypted
 @ r1 - argv array and output format
 @ r2 - loaded byte from private key
@@ -66,7 +71,7 @@ decrypt:
 	ADD r0, r2			@ add r2 to r0
 	CMP r0, #26			@ compare r0 with decimal value 26
 	SUBGT r0, #26			@ if r0 is greater than 26, subtract 26 from r0
-	B output			@ branch to output
+	@ removed B ouput as this was unecessary
 	
 @ output - add 96 to bring into a-z range, print character to console
 output:
